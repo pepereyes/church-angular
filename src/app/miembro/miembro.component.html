@@ -1,0 +1,35 @@
+<h1>Miembro</h1>
+<div class="container">
+  <form (ngSubmit)="!miembroForm.invalid && guardarMiembro()" #miembroForm="ngForm">
+    <fieldset class="form-group">
+      <label>Nombre:</label>
+      <input type="text" #nombre="ngModel" [(ngModel)]="miembro.nombre" name="nombre" class="form-control">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Telefono:</label>
+      <input type="tel" #telefono="ngModel" [(ngModel)]="miembro.telefono" name="telefono" class="form-control">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Direccion:</label>
+      <textarea #direccion [(ngModel)]="miembro.direccion" name="direccion" class="form-control"></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Fecha de Nacimiento:</label>
+      <input type="date" #fecha="ngModel" [ngModel]="miembro.fechaNacimiento | date:'yyyy-MM-dd'" name="fechaNacimiento" 
+      class="form-control">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Sexo:</label>
+      <select #sexo="ngModel" [(ngModel)]="miembro.sexo" class="form-control" name="sexo">
+        <option class="dropdown-select" *ngFor="let elSexo of miembro.sexos" value="{{elSexo.tipo}}">{{elSexo.descripcion}}</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Comentarios:</label>
+      <textarea class="form-control" #comentarios="ngModel" [(ngModel)]="miembro.comentarios" name="comentarios"></textarea>
+    </fieldset>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </form>
+
+</div>

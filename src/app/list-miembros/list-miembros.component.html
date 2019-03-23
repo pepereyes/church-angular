@@ -1,0 +1,23 @@
+<h1>Miembros</h1>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Modificar</th>
+      <th>Eliminar</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let miembro of miembros">
+        <td>{{miembro.nombre}}</td>
+        <td>{{miembro.telefono}}</td>
+        <td><button (click)="modificarMiembro(miembro.id)" class="btn btn-success">Modificar</button></td>
+        <td><button (click)="eliminarMiembro(miembro.id)" class="btn btn-warning">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <button (click)="agregarMiembro(-1)" class="btn btn-success">Nuevo</button>
+  </div>
+</div>
